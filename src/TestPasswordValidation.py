@@ -1,13 +1,26 @@
 import unittest
 
 
+def validate_password_recursive(password, length, has_upper, has_lower):
+    if has_upper and has_lower:
+        return True
+
+    if len(password) == 0:
+        return False
+
+    if password[0].isupper():
+        return validate_password_recursive(password[1:length], length, True, has_lower)
+
+    if password[0].islower():
+        return validate_password_recursive(password[1:length], length, has_upper, True)
+
+    return False
+
+
 def validate_password(password, length):
     if length < 8:
         return False
-    if password[0].isupper():
-        return True
-    else:
-        return validate_password(password[1:length], length)
+    return validate_password_recursive(password, length, False, False)
 
 
 class TestPasswordValidation(unittest.TestCase):
