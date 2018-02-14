@@ -2,7 +2,7 @@ import unittest
 
 
 def validatePassword(password):
-    return False
+    return True if len(password) > 7 else False
 
 
 class TestPasswordValidation(unittest.TestCase):
