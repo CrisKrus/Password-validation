@@ -9,7 +9,6 @@ def validate_password(password, length):
     else:
         return validate_password(password[1:length], length)
 
-    return False
 
 class TestPasswordValidation(unittest.TestCase):
 
