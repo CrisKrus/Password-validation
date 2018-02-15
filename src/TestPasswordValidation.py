@@ -17,8 +17,6 @@ def validate_password_recursive(password, length, has_upper, has_lower, has_numb
     if password[0].isalnum():
         return validate_password_recursive(password[1:length], length, has_upper, has_lower, True)
 
-    return False
-
 
 def validate_password(password, length):
     if length < 8:
