@@ -33,3 +33,6 @@ class TestPasswordValidation(unittest.TestCase):
 
     def test__given_password_without_one_lower_case_char(self):
         self.assertFalse(validate_password(['Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P', 'W'], 11))
+
+    def test__given_password_without_one_number(self):
+        self.assertFalse(validate_password(['Q', 'W', 'E', 'k', 'T', 'h', 'U', 'I', 'O', 'P', 'W', 's', 'f'], 13))
