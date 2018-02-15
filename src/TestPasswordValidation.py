@@ -28,8 +28,8 @@ class TestPasswordValidation(unittest.TestCase):
     def test__given_password_with_less_than_eight_chars(self):
         self.assertFalse(validate_password(['q', 'w', 'e', 'r', 't'], 5))
 
-    def test__given_password_with_at_least_one_upper_case_char(self):
-        self.assertTrue(validate_password(['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', 'W'], 11))
+    def test__given_password_without_one_upper_case_char(self):
+        self.assertFalse(validate_password(['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', 'w'], 11))
 
     def test__given_password_with_at_least_one_lower_case_char(self):
         self.assertFalse(validate_password(['Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P', 'W'], 11))
